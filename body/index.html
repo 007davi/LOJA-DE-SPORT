@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Materiais Esportivos </title>
+   
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="import" href=<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200;400;700&family=Space+Grotesk:wght@300;500;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,700&display=swap" rel="stylesheet">>
+</head>
+<body>
+    
+<header>
+    <h1>Minha Loja 1.0</h1>
+</header>
+
+<main>
+  <div class="title">
+
+    <h2>Produtos</h2>
+    <span>Lista de Produtos de minha loja</span>
+
+  </div>
+  
+
+    <div class="card">
+            
+            <div class="lineInput">
+                <label for=""> Produto</label>
+                <input type="text" id="produto" placeholder="Nome do Produto">
+            </div>
+
+            <div class="lineInput">
+                <label for=""> Descrição</label>
+                <input type="text" id="descricao" placeholder="Descrição do Produto">
+            </div>
+
+            <div class="lineInput">
+                <label for=""> Codigo</label>
+                <input type="number" id="codigo" placeholder="Codigo do produto">
+            </div>
+
+            <div class="lineInput">
+                <label for=""> Preço</label>
+                <input type="number" id="valor" placeholder="Valor do Produto">
+            </div>
+
+
+        <button onclick="produto.Salvar() " id= btn1 >Salvar</button>
+        <button onclick="produto.Cancelar()">Cancelar</button>
+    </div>
+
+    <div class="content">
+        <table>
+            <thead>
+                <th class="center">ID</th>
+                <th>Produto</th>
+                <th>Descrição</th>
+                <th>Codigo</th>
+                <th>Preço</th>
+                <th class="center">Acões</th>
+
+            </thead>
+
+            <tbody id="tbody">
+                
+        </table>
+    </div>
+
+</main>
+
+    <script src="script.js"></script>
+</body>
+</html>
