@@ -1,4 +1,4 @@
-class Tabelas {
+class table {
     init(conexao){
         this.conexao= conexao;
         this.criarDbApiShopSport();
@@ -28,4 +28,4 @@ class Tabelas {
     }
 }
 
-module.exports= new Tabelas();
+module.exports= new table();

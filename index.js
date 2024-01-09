@@ -1,18 +1,16 @@
 const express = require("express");
 const app = express();
+const config= require('./src/config/conf.json'); 
 const port = 3000;
-const router= require('./src/exports') 
-const conexao= require("./src/db");
-const table = require("./src/services/table");
-
-router(app, express);
-table.init(conexao);
+const appCustom= require('./src/config/app.custom')
 
 
-app.listen(port, (error) => {
-    if (error) {
-        console.log("falhou")
-        return
-    }
-    console.log("rodando liso")
-})
+appCustom(app, express);
+
+app.listen(config.get("port"), (error) => {
+  if (error) {
+    console.log("Deu erro");
+    return;
+  }
+  console.log("Rodando que e uma belezinha...");
+});
