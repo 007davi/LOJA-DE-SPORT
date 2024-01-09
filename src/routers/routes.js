@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router= Router();
-const shopController= require('./controllers/shopcontroller')
+const shopController= require('../controllers/controlles')
 
 
 router.get("/shopSport", shopController.buscar);

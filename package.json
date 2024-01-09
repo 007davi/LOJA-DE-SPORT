@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js",
+    "start": "nodemon ./src/config/app.custom.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
