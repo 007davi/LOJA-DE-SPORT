@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const config= require('./src/config/conf.json'); 
+const config= require('./src/config/config.json'); 
 const port = 3000;
 const appCustom= require('./src/config/app.custom')
 

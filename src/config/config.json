@@ -1,7 +1,7 @@
 {
     "port": 3000,
     "conexao": {
-      "host": "localhost",
+      "host": "http",
       "port": 3306,
       "user": "root",
       "password": "sousa007",
