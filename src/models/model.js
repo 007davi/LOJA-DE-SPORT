@@ -1,4 +1,4 @@
-const conexao= require('../db')
+const conexao= require('../services/db')
 class shopModel {
     executaQuery(sql, parametros = "") {
       return new Promise((resolve, reject) => {
