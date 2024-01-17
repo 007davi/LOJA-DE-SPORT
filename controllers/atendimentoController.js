@@ -1,4 +1,5 @@
 const atendimentoModel = require("../models/atendimentoModel");
+const { body, validationResult } = require('express-validator')
 class AtendimentoController {
   buscar(req, res) {
     const listaAtendimentos = atendimentoModel.listar();
@@ -7,6 +8,7 @@ class AtendimentoController {
       .catch((error) => res.status(400).json(error.message));
   }
   criar(req, res) {
+    body('novoAtendimento').not().isEmpty().trim().escape()
     const novoAtendimento = req.body;
     const atendimento = atendimentoModel.criar(novoAtendimento);
     return atendimento

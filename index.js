@@ -3,6 +3,16 @@ const app = express();
 const config = require("config");
 const port = 3000;
 const appCustom = require("./config/appCustom");
+const cors= require('cors')
+
+
+
+app.use(cors({
+  origin: "*",
+  header: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+  methods: "GET,OPTIONS,PATH,DELETE,POST,PUT",
+  credentials: true
+})) 
 
 appCustom(app, express);
 
