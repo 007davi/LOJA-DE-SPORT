@@ -1,55 +1,58 @@
-const produtoGet=  document.getElementById('produto')
-const descricaoGet=  document.getElementById('descricao')
-const codigoGet=  document.getElementById('codigo')
-const valorGet=  document.getElementById('valor')
-const buttonCan= document.getElementById('btn1')
-const buttonSave= document.getElementById('btn2')
+document.addEventListener('DOMContentLoaded', (event) => {
+    const produtoGet = document.getElementById('produto');
+    const descricaoGet = document.getElementById('descricao');
+    const codigoGet = document.getElementById('codigo');
+    const valorGet = document.getElementById('valor');
+    const buttonSave = document.getElementById('btn1');
+
 
 buttonSave.addEventListener('click', () => {
-    const produto= getProdutos()
+    const produto = {
+        nome: produtoGet.value,
+        descricao: descricaoGet.value,
+        codigo: codigoGet.value,
+        preco: valorGet.value
+    };
 
-    APIProductSend()
+    console.log(produto); // Para verificar os valores coletados
+    APIProductSend(produto);
 })
 
-function getProdutos(){
-    const inputNome= produtoGet
-    const inputDescricao=descricaoGet
-    const inputCodigo=codigoGet
-    const inputValor=valorGet
+})
 
-
-    const produto= {
-        nome: inputNome.value,
-        descricao: inputDescricao,
-        codigo: inputCodigo,
-        valor: inputValor
-    }
-    return produto
-}
-
-async function APIProductSend(){
+async function APIProductSend(produto){
+    try{
     const response= await fetch('http://localhost:3000/atendimentos', {
         method: 'POST',
         headers:{
-            Acecept: 'application/json',
+            Accept: 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(curso)
+        body: JSON.stringify(produto)
     })
 
-    if (response.status===201){
-        campClean ()
-        //window.location.href= ''
-    }else{
-        console.log('erro ao adicionar produto')
+    if (response.status === 201){
+        const produtoAdicionado = await response.json(); // Se a API retornar o produto criado
+        adicionarProdutoNaTabela(produto);
+    } else {
+        console.log('Erro ao adicionar produto');
     }
-
-    function campClean (){
-        document.getElementById('produto').value=''
-        document.getElementById('descricao').value=''
-        document.getElementById('codigo').value=''
-        document.getElementById('valor').value=''
-
-
-    }
+} catch (erro) {
+    console.error(erro.message);
 }
+
+}
+
+function adicionarProdutoNaTabela(produto) {
+    const novaLinha = `<tr>
+        <td>${produto.nome}</td>
+        <td>${produto.descricao}</td>
+        <td>${produto.codigo}</td>
+        <td>${produto.preco}</td>
+    </tr>`;
+    tbodyGet.innerHTML += novaLinha;
+}
+
+
+   
+ 
