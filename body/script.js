@@ -5,20 +5,7 @@ class Produto  {
         this.editId= null
     }
 
-    Salvar(){
-      let produto =  this.lerDados()
 
-      if(this.validaCampos(produto)){
-       if (this.editId == null){
-        this.adicionar(produto)
-        }else{
-            this.atualizar(this.editId, produto)
-        }
-      }
-
-      this.listaTabela()
-      this.Cancelar()
-    }
 
     listaTabela(){
         const tbody= document.getElementById('tbody')
@@ -58,7 +45,20 @@ class Produto  {
 
         }
     }
+    Salvar(){
+      let produto =  this.lerDados()
 
+      if(this.validaCampos(produto)){
+       if (this.editId == null){
+        this.adicionar(produto)
+        }else{
+            this.atualizar(this.editId, produto)
+        }
+      }
+
+      this.listaTabela()
+      this.Cancelar()
+    }
     adicionar(produto){
         this.arrayProdutos.push(produto)
         this.id ++
